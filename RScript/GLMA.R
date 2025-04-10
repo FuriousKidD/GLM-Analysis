@@ -6,6 +6,7 @@ current_dir <- getwd()
 #change current directory to parent directory then go into sibling directory data
 data_dir <- file.path(current_dir, "data")
 data_dir
+
 current_dir <- setwd(data_dir)
 
 #read the csv file into a variable
@@ -19,11 +20,14 @@ head(carbohydratesData)
 
 library(tidyverse)#for cleaning the data
 
+
 #Cleaning the data by removing any missing values that may exist
 clean_data <- na.omit(carbohydratesData)
 
-#Extracting the variables
+#Viewing the summary statistics of the clean data
+summary(clean_data)
 
+#Extracting the variables
 #Response Variable
 calories_obtained <- clean_data$Carbohydrate
 #Explanatory Variables
@@ -31,5 +35,11 @@ weight <- clean_data$Weight
 protein <- clean_data$Protein
 age <- clean_data$Age
 
+#Fitting a multiple linear model(Full model)
+#We use the general linear model
+carb_mlr <- lm(calories_obtained~ weight + protein + age, data = clean_data)
 
-#Fitting a multiple linear model(Full model)  
+#Getting the summary of the linear model that we fit
+summary(carb_mlr)
+
+#Checking the adequccy of the linear model(See if it violates assumptions of a linear regression model)
