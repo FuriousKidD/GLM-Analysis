@@ -42,4 +42,4 @@ carb_mlr <- lm(calories_obtained~ weight + protein + age, data = clean_data)
 #Getting the summary of the linear model that we fit
 summary(carb_mlr)
 
-#Checking the adequccy of the linear model(See if it violates assumptions of a linear regression model)
+#Checking the adequecy of the linear model(See if it violates assumptions of a linear regression model)
