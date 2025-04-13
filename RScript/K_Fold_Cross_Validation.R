@@ -48,3 +48,11 @@ carb_full_mlr <- lm(calories_obtained~ weight + protein + age, data = clean_data
 install.packages("cvTools")
 library("cvTools")
 
+#Calculating the CV prediction error
+#We add 5 folds and choose that they are all each repeated 10 times
+#The lower the CV value, the better the model will be at prediction
+cvFit(carb_full_mlr, data = carbohydratesData, K = 5, R = 10,
+      y = calories_obtained)
+warnings()
+
+
