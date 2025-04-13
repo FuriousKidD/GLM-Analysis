@@ -37,9 +37,17 @@ age <- clean_data$Age
 
 #Fitting a multiple linear model(Full model)
 #We use the general linear model
-carb_mlr <- lm(calories_obtained~ weight + protein + age, data = clean_data)
+carb_full_mlr <- lm(calories_obtained~ weight + protein + age, data = clean_data)
 
 #Getting the summary of the linear model that we fit
-summary(carb_mlr)
+summary(carb_full_mlr)
 
+#Fitting a model were we remove the age variable since it is not significant to the fitted model
+carb_reduced_mlr <- lm(calories_obtained~ weight + protein, data = carbohydratesData)
+
+#Getting the summary of the model we fit
+summary(carb_reduced_mlr)
+
+#Evaluating the difference between the two models fit, to see which model is the better fit
+#We want to see if the removal of the age variable significantly affects the model
 #Checking the adequecy of the linear model(See if it violates assumptions of a linear regression model)
