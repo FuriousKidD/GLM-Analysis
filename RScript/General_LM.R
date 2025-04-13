@@ -50,4 +50,7 @@ summary(carb_reduced_mlr)
 
 #Evaluating the difference between the two models fit, to see which model is the better fit
 #We want to see if the removal of the age variable significantly affects the model
+#We asses this using Analysis of Variance
+anova(carb_full_mlr, carb_reduced_mlr)
+
 #Checking the adequecy of the linear model(See if it violates assumptions of a linear regression model)
